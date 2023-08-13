@@ -10,23 +10,22 @@ When the number of conditions is odd, each condition will precede another twice.
 
 ## Installation
 
-FIXME: installation
+Assuming you have installed [git](https://git-scm.com) and [leiningen](https://leiningen.org) :
+
+```
+    $ git clone https://github.com/jbgreer/bls.git`
+    $ lein uberjar
+```
 
 ## Usage
 
-FIXME: explanation
+    `$ java -jar bls-0.1.0-standalone.jar <n>`
 
-    $ java -jar bls-0.1.0-standalone.jar [n]
-
-where *n* represents the number of tests.
-
-## Examples
-
-FIXME: Examples
+where *n* represents the number of conditions.
 
 ### Bugs
 
-FIXME: Bugs
+None found so far.  Will you be the first?
 
 ### Citations
 
