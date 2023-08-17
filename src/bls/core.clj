@@ -61,4 +61,4 @@
   (let [n (validate-args args)]
     (cond
       (nil? n)(println "usage: requires a single positive integer argument")
-      :else (generate-bls n))))
+      :else (println (generate-bls n)))))
