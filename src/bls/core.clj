@@ -1,6 +1,28 @@
 (ns bls.core
-  (:require [[clojure.string :as string]])
   (:gen-class))
+
+
+(defn even-odd
+  [col n]
+  (cond
+    (even? col) (- n (quot col 2))
+    :else (+ (quot col 2) 1)))
+
+
+(defn bls-val
+  [row col n]
+  (+ (mod (+ (even-odd col n) row) n) 1))
+
+
+(defn bls-row
+  [row n]
+  (for [col (range n)] (bls-val row col n)))
+  
+
+(defn bls-even
+  [n]
+  (for [row (range n)]
+      (bls-row row n)))
 
 
 ;; Generate a balanced Latin square
@@ -18,25 +40,6 @@
     (cond
       (even? n) bls
       :else (concat bls (map reverse bls)))))
-
-(defn bls-even
-  [n]
-  (for [row (range n)]
-      (bls-row row n)))
-
-(defn bls-row
-  [row n]
-  (for [col (range n)] (bls-val row col n)))
-  
-(defn bls-val
-  [row col n]
-  (+ (mod (+ (even-odd col n) row) n) 1))
-
-(defn even-odd
-  [col n]
-  (cond
-    (even? col) (- n (quot col 2))
-    :else (+ (quot col 2) 1)))
 
 
 (defn validate-args
@@ -59,4 +62,3 @@
     (cond
       (nil? n)(println "usage: requires a single positive integer argument")
       :else (generate-bls n))))
-
